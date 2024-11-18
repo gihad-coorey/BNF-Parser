@@ -1,0 +1,7 @@
+<repeatable> ::= "repeatable"*
+
+<optional> ::= "optional"? "not-optional"
+
+<digit> ::= [3-9]
+
+<nested_alternatives> ::= ("a" ("b" | "c") "d") | "e"

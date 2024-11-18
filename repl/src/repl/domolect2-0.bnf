@@ -1,0 +1,45 @@
+<command> ::= <location>? (<lighting_command> | <barrier_command> | <appliance_command> | <thermal_device_command>)
+
+<location> ::= "kitchen" | "living-room" | "bedroom"
+
+<lighting_command> ::= "turn" <light_source> <state>
+
+<thermal_device_command> ::= "set" <thermal_device> "to" <temperature>
+
+<barrier_command> ::= <barrier_action> <barrier>
+
+<appliance_command> ::= "turn" <appliance> <state>
+
+<barrier_action> ::= "lock" | "unlock" | "open" | "close"
+
+<state> ::= "on" | "off"
+
+<temperature> ::= <number> "K"
+
+<light_source> ::= "lamp" | "bulb" | "neon" | "sconce" | "brazier"
+
+<barrier> ::= "gate" | "curtains" | "garage-door" | "blinds" | "window" | "shutter" | "trapdoor" | "portcullis" | "drawbridge" | "blast-door" | "airlock"
+
+<thermal_device> ::= "oven" | "thermostat" | "electric-blanket" | "incinerator" | "reactor-core"
+
+<appliance> ::= "coffee-maker" | "oven" | "air-conditioner" | "centrifuge" | "synchrotron" | "laser-cannon"
+
+<number> ::= ([1-9] [0-9]*) | [0-9]
+
+<augmented_command> ::= <command> <when_condition>? <until_condition>?
+
+<when_condition> ::= "when" (<temperature_condition> | <time_condition>)
+
+<until_condition> ::= "until" (<temperature_condition> | <time_condition>)
+
+<temperature_condition> ::= "current-temperature" <comparator> <temperature>
+
+<comparator> ::= "less-than" | "greater-than" | "equal-to"
+
+<time_condition> ::= <hour> ":" <minute> ("am" | "pm")
+
+<hour> ::= <digit> <digit>
+
+<minute> ::= <digit> <digit>
+
+<digit> ::= [0-9]
